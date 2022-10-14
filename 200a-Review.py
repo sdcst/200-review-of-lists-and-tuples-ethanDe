@@ -4,7 +4,7 @@
 def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
-    integers = []
+    integers = [myList]
 
     return integers
 
@@ -14,6 +14,13 @@ def getFactor(myList,factor):
     # iterate through the list and add the number to the list if
     # it is a factor of the number
     factors = []
+    for i in myList:
+        if i%factor == 0:
+            print(f"{myList[]} is a factor of {i}")
+            factors.append(i)
+        else:
+            print(f"{myList} is a factor of {i}")
+        
 
     return factors
 
