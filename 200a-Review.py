@@ -4,11 +4,10 @@
 def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
-    integers = [myList]
-    for i in integers:
-        if i != int:
-            integers.pop(i) #NEEDS RESTRUCTURE
-
+    integers = []
+    for i in myList:
+        if isinstance(i, int) == True:
+            integers.append(i)
     return integers
 
 
@@ -17,22 +16,23 @@ def getFactor(myList,factor):
     # factor : integer
     # iterate through the list and add the number to the list if
     # it is a factor of the number
+    factor = int(factor)
     factors = []
     for i in myList:
         if i%factor == 0:
-            print(f"{myList()} is a factor of {i}")
             factors.append(i)
+            print(f"{i} is divisible by {factor}")
         else:
-            print(f"{myList} is a factor of {i}")
-        
-
-    return factors
+            print(f"{i} is not divisible by {factor}")
+    return (f"Factors: {factors}")
 
 def getNegatives(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the negative numbers to the new list
     negatives = []
-
+    for i in myList:
+        if i < 0:
+            negatives.append(i)
     return negatives
 
 def getIntersection(list1,list2):
@@ -44,7 +44,6 @@ def getIntersection(list1,list2):
     for i in list2:
         if i in list1:
             common.append(i)
-    
     return common
 
 def getUnion(list1,list2):
@@ -56,7 +55,6 @@ def getUnion(list1,list2):
     for i in list2:
         if i not in union:
             union.append(i)
-    
     return union
 
 def getMerge(list1,list2):
@@ -69,8 +67,7 @@ def getMerge(list1,list2):
     for i in list2:
         if i not in list1:
             merge.append(i)
-
-    return merge #POTENTIALLY RESTRUCTURE
+    return merge
 
 
 def main():
@@ -78,9 +75,14 @@ def main():
     easy2 = [-2,-4,-6,2,4,6,0.1]
     numbers1 = [3,5,8,12,11,19,10,7,2,15,25,34,16,32,50,60,100,-3,0.25]
     numbers2 = [3,7,11,15,19,23,27,31,35,39,44,50]
-    #print(getMerge(easy1, easy2))
+    #print(getIntegers(numbers1))
+    #print(getFactor(numbers1,6))
+    #print(getNegatives(easy2))
+    #print(getIntersection(numbers1, numbers2))
     #print(getUnion(numbers1, numbers2))
-    print(getIntegers(numbers1))
+    #print(getMerge(easy1, easy2))
+    
+    
 
 
 if __name__ == "__main__":
